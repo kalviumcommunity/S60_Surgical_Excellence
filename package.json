@@ -4,7 +4,7 @@
   "description": "A advanced Idea Web application for everyone.",
   "main": "Node.js",
   "scripts": {
-    "start": "Node.js",
+    "start": "node Node.js",
     "test": "npm test"
   },
   "repository": {
