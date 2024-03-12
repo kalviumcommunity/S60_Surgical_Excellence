@@ -2,9 +2,10 @@
   "name": "s60_surgical_excellence",
   "version": "1.0.0",
   "description": "A advanced Idea Web application for everyone.",
-  "main": "Node.js",
+  "main": "index.js",
   "scripts": {
-    "test": "npm test"
+    "test": "npm test",
+    "serve": "node server.js"
   },
   "repository": {
     "type": "git",
@@ -15,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/kalviumcommunity/S60_Surgical_Excellence/issues"
   },
-  "homepage": "https://github.com/kalviumcommunity/S60_Surgical_Excellence#readme"
+  "homepage": "https://github.com/kalviumcommunity/S60_Surgical_Excellence#readme",
+  "dependencies": {
+    "express": "^4.18.3"
+  }
 }
