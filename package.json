@@ -1,0 +1,19 @@
+{
+  "name": "s60_surgical_excellence",
+  "version": "1.0.0",
+  "description": "A advanced Idea Web application for everyone.",
+  "main": "app.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kalviumcommunity/S60_Surgical_Excellence.git"
+  },
+  "author": "Mukilan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kalviumcommunity/S60_Surgical_Excellence/issues"
+  },
+  "homepage": "https://github.com/kalviumcommunity/S60_Surgical_Excellence#readme"
+}
