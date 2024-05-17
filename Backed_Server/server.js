@@ -1,17 +1,30 @@
-const express=require("express");
-const app=express();
-app.get("/",(req,res)=>{
-    res.redirect(req.baseUrl+"/ping")
-})
-app.get("/ping",(req,res)=>{
-    res.send("PingPong")
-})
+const express = require("express");
+const app = express();
+require("dotenv").config();
+const mongoose = require("mongoose");
+const body_parser = require('body-parser');
 
-app.post("/post",(req,res)=>{
-     const name = req.body;
-     res.send(name)
-})
-app.listen(process.env.PORT || 7777,()=>{
-    console.log("Node API is running on port 7777")
-})
+const port = process.env.PORT || 7777;
+const DB = process.env.MONGO_URL;
 
+app.use(body_parser.json());
+
+app.get("/", (req, res) => {
+    res.send("hello kalviam");
+});
+
+app.post("/post", (req, res) => {
+    const { name } = req.body;
+    res.send(name);
+});
+
+try {
+    mongoose.connect(DB);
+    console.log("MongoDB connected successfully");
+} catch (error) {
+    console.error("MongoDB connection error:", error);
+}
+
+app.listen(port, () => {
+    console.log(`Port listening successfully on ${port}`);
+});
