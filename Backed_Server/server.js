@@ -3,12 +3,13 @@ const app = express();
 require("dotenv").config();
 const mongoose = require("mongoose");
 const body_parser = require('body-parser');
-
+const cors = require("cors");
 const port = process.env.PORT || 7777;
 const DB = process.env.MONGO_URL;
-
+const router = require("./routes");
+app.use(cors());
 app.use(body_parser.json());
-
+app.use("/user",router);
 app.get("/", (req, res) => {
     res.send("hello kalviam");
 });
