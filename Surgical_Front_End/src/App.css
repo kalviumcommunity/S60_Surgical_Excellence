@@ -1,0 +1,130 @@
+*{
+  margin: 0px;
+  padding:0px;
+}
+.imgDiv{
+  width: 10%;
+}
+.logo{
+  width: 15%;
+  border: 5px solid rgb(225, 216, 217);
+  position: absolute;
+  height: 140px;
+  margin-top: 10px;
+}
+.contaniner{
+  display: flex;
+  background-color: 1px black; /* Background color */
+  overflow: hidden; /* Clear floats */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Box shadow */
+  background-color:#28acb5;
+  /* background-color: #fdd02e; */
+  height: 90px;
+  left: 15.7%;
+  position: absolute;
+  top: 35px;
+  width:84.3%;
+}
+body{
+  background-image:url(./assets/hospitalBg.jpg);
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+.list{
+  /* margin-left:10% ; */
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  margin-top: 1%;
+  color: rgb(10, 10, 10);
+  font-weight: bolder;
+}
+.search{
+  height: 40px;
+  width: 110%;
+}
+.bg{
+  border:dashed 4px purple ;
+  width: 90%;
+  position: absolute;
+  top: 30%;
+  height: 60%;
+  left: 7%;
+  background-color: rgba(255, 255, 255, 0.7);
+  box-shadow: 0px 5px 10px purple;
+}
+.imgO{
+  width: 40%;
+  position: absolute;
+  top:5%;
+  left: 2%;
+  box-shadow: 0px 50px 100px rgb(172, 243, 247);
+  /* border: 1px solid blue; */
+  border: 1px solid rgb(16, 16, 16);
+}
+.listImg{
+  width: 10%;
+  height: 100%;
+}
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); 
+  grid-template-rows: repeat(5, 1fr);    
+  gap: 16px;                             
+}
+
+.grid-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 25px;
+  width: 100%;
+  background-color: pink;
+  margin-top: 70px;
+}
+
+.listImg {
+  width: 40%;
+  height: auto;
+  object-fit: cover;
+  margin-right: 2%;
+}
+.main-container{
+  background-color: #28acb5;
+  position: absolute;
+  margin-top: 50%;
+}
+.datas{
+  position: absolute;
+  width: 40%;
+  right: 10%;
+  top: 20%;
+  color: purple;
+}
+.btn{
+  width: 20%;
+  height: 50px;
+  margin-top: 3%;
+  margin-left: 26%;
+  font-weight: bolder;
+}
+.btn3{
+  width: 45%;
+  margin-top: 2%;
+  margin-left:50%;
+}
+.btn1{
+  background-color: yellow;
+  border-radius: 6px;
+}
+.btn2{
+  background-color: red;
+  border-radius: 6px;
+}
+.h2{
+  margin-top: 10px;
+  margin-left: 15px;
+  position: absolute;
+}
