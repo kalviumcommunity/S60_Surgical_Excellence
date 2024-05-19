@@ -134,6 +134,18 @@ function DisData(e) {
 
     setData(filteredData);
 }
+const deletingTheItem = (id) => {
+  console.log('deletingTheItem called with ID:', id);
+  axios
+    .delete(`http://localhost:7777/user/jsondata/${id}`)  
+    .then(() => {
+      console.log('Item deleted successfully');
+      fetchData();  
+    })
+    .catch((error) => {
+      console.log('Error', error);
+    });
+};
 
   return (
     <div className="bg-white min-h-screen bg-no-repeat bg-cover bg-[url('./assets/hospitalBg.jpg')]">
@@ -239,7 +251,7 @@ function DisData(e) {
                 </button>
               </Link>
               <button
-                
+                onClick={() => deletingTheItem(detail._id)}
                 className="relative border hover:border-red-600 duration-500 group cursor-pointer text-sky-50  overflow-hidden h-14 w-40 rounded-md bg-red-800 p-2 flex justify-center items-center font-extrabold"
               >
                 <div className="absolute z-10 w-48 h-48 rounded-full group-hover:scale-150 transition-all  duration-500 ease-in-out bg-red-900 delay-150 group-hover:delay-75"></div>
