@@ -1,12 +1,12 @@
 import React, { useState} from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+
 export default function LogIn() {
   const [loginData, setLoginData] = useState({
     email: '',
     password: ''
   });
-  const nav = useNavigate(" ");
+
   const handleSubmit = async (event) => {
     event.preventDefault();
     console.log('Login Data:', loginData);
@@ -40,7 +40,6 @@ export default function LogIn() {
 
         document.cookie = `useremail=${loginData.email}`;
         console.log("Login successful. Cookie set.");
-        nav("/")
       })
       .catch(error => {
         console.error("Error while setting cookie:", error);
