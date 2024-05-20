@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-
+import { useNavigate } from 'react-router-dom';
 export default function SignUp() {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     password: ''
   });
+  const nav = useNavigate(" ")
   const [error, setError] = useState('');
 
   const handleChange = (e) => {
@@ -21,6 +22,8 @@ export default function SignUp() {
     e.preventDefault();
     try {
       const response = await axios.post('http://localhost:7777/user/data', formData);
+      document.cookie = `useremail=${formData.email}`;
+      nav("/")
       console.log(response.data);
 
     } catch (error) {
