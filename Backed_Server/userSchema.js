@@ -10,7 +10,8 @@ const file={
 const file1={
     name:String,
     email:String,
-    password:String
+    password:String,
+    token: String
 }
 const userSchema = new mongoose.Schema(file); 
 const userFile = new mongoose.Schema(file1);
