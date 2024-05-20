@@ -3,6 +3,7 @@ const router = express.Router();
 const { model, file } = require("./model");
 const { signupSchema } = require("./JOI");
 const { userSchema } = require("./userSchema");
+const jwt = require("jsonwebtoken");
 
 // Add Data
 router.post("/add", async (req, res) => {
@@ -62,13 +63,14 @@ router.put("/jsondata/:id", async (req, res) => {
 
 // Validation
 router.post("/data", async (req, res) => {
+    const token=jwt.sign(req.body,process.env.password)
     const { error, value } = signupSchema.validate(req.body);
     if (error) {
         return res.status(400).json({ message: "Invalid inputs entered", error: error.message });
     }
     try {
         const { name, email, password } = req.body;
-        const newData = await model.create({ name, email, password });
+        const newData = await model.create({ name, email, password , token:token});
         res.status(200).send({ message: "Data received successfully", data: newData });
     } catch (err) {
         return res.status(500).send({ message: "Internal Server Error", error: err.message });
