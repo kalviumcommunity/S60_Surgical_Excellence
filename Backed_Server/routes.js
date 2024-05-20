@@ -1,9 +1,9 @@
 const express = require("express");
 const router = express.Router();
-const { model, file } = require("./model"); 
+const { model, file } = require("./model");
 const { signupSchema } = require("./JOI");
-const fs = require("fs");
 const { userSchema } = require("./userSchema");
+
 // Add Data
 router.post("/add", async (req, res) => {
     try {
@@ -16,7 +16,6 @@ router.post("/add", async (req, res) => {
         return res.status(400).send({ message: err.message }); // Changed status code to 400
     }
 });
-
 
 router.get("/jsondata", async (req, res) => {
     try {
@@ -60,20 +59,55 @@ router.put("/jsondata/:id", async (req, res) => {
         res.status(500).send({ message: "Internal Server Error", error: error.message });
     }
 });
-//Validation
-router.post("/data", async (req, res) => {
 
-      const { error, value } = signupSchema.validate(req.body);
-      if (error) {
+// Validation
+router.post("/data", async (req, res) => {
+    const { error, value } = signupSchema.validate(req.body);
+    if (error) {
         return res.status(400).json({ message: "Invalid inputs entered", error: error.message });
-      }
-      try{
-      const { name, email, password } = req.body;
-      const newData = await model.create({ name, email, password });
-  
-      res.status(200).send({ message: "Data received successfully", data: newData });
+    }
+    try {
+        const { name, email, password } = req.body;
+        const newData = await model.create({ name, email, password });
+        res.status(200).send({ message: "Data received successfully", data: newData });
     } catch (err) {
-      return res.status(500).send({ message: "Internal Server Error", error: err.message });
+        return res.status(500).send({ message: "Internal Server Error", error: err.message });
     }
 });
+
+// Check data
+router.post("/checkData", async (req, res) => {
+    const { email, password } = req.body;
+    try {
+        const userD = await model.findOne({ email });
+        if (!userD) {
+            return res.status(400).json({ message: "Invalid email entered" });
+        } else {
+            if (password === userD.password) {
+                return res.status(200).json({ message: "Successfully reached" });
+            } else {
+                return res.status(400).json({ message: "Wrong password" });
+            }
+        }
+    } catch (err) {
+        return res.status(500).json({ message: "Internal Server Error", error: err.message });
+    }
+});
+
+// Login
+router.post("/login", async (req, res) => {
+    const { email, password } = req.body;
+    try {
+      return res.status(200).json({ message: "Login successful" });
+    } catch (err) {
+      return res.status(500).json({ message: "Internal Server Error", error: err.message });
+    }
+  });
+
+
+router.post("/logout", (req, res) => {
+    
+    return res.status(200).json({ message: "Logout successful" });
+});
+
 module.exports = router;
