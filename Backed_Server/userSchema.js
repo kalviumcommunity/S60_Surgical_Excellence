@@ -7,5 +7,11 @@ const file={
     img:String,
     rate:Number
 }
+const file1={
+    name:String,
+    email:String,
+    password:String
+}
 const userSchema = new mongoose.Schema(file); 
-module.exports=userSchema;
+const userFile = new mongoose.Schema(file1);
+module.exports={userSchema,userFile};

@@ -185,12 +185,11 @@ const deletingTheItem = (id) => {
               onChange={DisData}
             />
             
-           <div className="flex justify-around w-[140%]">
-            <button className="bg-blue-600">Sign Up</button>
-           
-           
-            <button className="bg-yellow-600">Log In</button>
+            <div className="flex justify-between items-center w-[300%] ml-[20px]">
+                <Link to="/signup"><button className="bg-blue-600 h-[40px]  text-white rounded-md">Sign Up</button></Link>
+                <Link to="/login"><button className="bg-yellow-600 h-[40px]  text-white rounded-md ml-[25px]">Log In</button></Link>
             </div>
+
              
             
           </div>

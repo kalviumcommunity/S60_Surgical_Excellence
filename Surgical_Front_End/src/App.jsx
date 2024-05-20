@@ -3,6 +3,8 @@ import NavBar from './Components/NavBar';
 import MainPage from './Components/MainPage';
 import Edit from './Components/Edit';
 import {Route,Routes,BrowserRouter,Link} from "react-router-dom";
+import SignUp from './Components/SignUp';
+import LogIn from './Components/LogIn';
 function App() {
     return (
             <div>
@@ -10,6 +12,8 @@ function App() {
                 <Route path="/" element={<NavBar/>}/>
                 <Route path="/Add" element={<MainPage/>}/>
                 <Route path="/edit/:id" element={<Edit/>}/>
+                <Route path="/signup" element={<SignUp/>}/>
+                <Route path="/login" element={<LogIn/>}/>
             </Routes>
             </div>
     );
