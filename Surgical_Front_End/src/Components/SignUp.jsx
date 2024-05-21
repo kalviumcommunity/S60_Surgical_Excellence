@@ -22,6 +22,7 @@ export default function SignUp() {
     e.preventDefault();
     try {
       const response = await axios.post('http://localhost:7777/user/data', formData);
+      localStorage.setItem("userEmail",formData.email)
       document.cookie = `useremail=${formData.email}`;
       nav("/")
       console.log(response.data);

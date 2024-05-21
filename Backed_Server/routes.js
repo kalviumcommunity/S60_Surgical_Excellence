@@ -111,5 +111,19 @@ router.post("/logout", (req, res) => {
     
     return res.status(200).json({ message: "Logout successful" });
 });
+//search bar
+router.get("/search",(req,res)=>{
+    model.find({})
+    .then((arrOfUsers) => {res.json({arrOfUsers})})
+    .catch((error) => {res.json({error})})
+})
+
+router.get('/get', (req, res) => {
+    file.find({})
+    .then((arrOfdata) => {res.json({arrOfdata})})
+    .catch((error) => {res.json({error})})
+})
+
+
 
 module.exports = router;

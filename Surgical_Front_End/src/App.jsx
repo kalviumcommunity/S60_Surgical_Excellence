@@ -5,6 +5,7 @@ import Edit from './Components/Edit';
 import {Route,Routes,BrowserRouter,Link} from "react-router-dom";
 import SignUp from './Components/SignUp';
 import LogIn from './Components/LogIn';
+import UserSearch from './Components/UserSearch';
 function App() {
     return (
             <div>
@@ -14,6 +15,7 @@ function App() {
                 <Route path="/edit/:id" element={<Edit/>}/>
                 <Route path="/signup" element={<SignUp/>}/>
                 <Route path="/login" element={<LogIn/>}/>
+                <Route path="/search" element={<UserSearch/>}/>
             </Routes>
             </div>
     );
