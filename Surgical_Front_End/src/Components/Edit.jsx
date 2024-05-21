@@ -11,6 +11,7 @@ function Edit() {
     location: "",
     img: "",
     rate: "",
+    Added_by: ""
   });
 
   const myfunc = (e) => {

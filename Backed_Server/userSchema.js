@@ -5,7 +5,8 @@ const file={
     surgery_name:String,
     city:String,
     img:String,
-    rate:Number
+    rate:Number,
+    Added_by:String
 }
 const file1={
     name:String,

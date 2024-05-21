@@ -1,43 +1,66 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import img1 from "../assets/hospitalBg.jpg";
 import { Link } from "react-router-dom";
 import axios from "axios";
+
 function MainPage() {
-  const [data, Setdata] = useState({
+  const [data, setData] = useState({
     name: "",
     description: "",
     surgery_name: "",  
     city: "",
     img: "",
     rate: "",
+    Added_by: ""
   });
+  const [userEmail, setUserEmail] = useState(" ");
 
   function ActionSubmit(e) {
     e.preventDefault();
-    postFunc();
+    setData(prevData => ({
+      ...prevData,
+      Added_by: userEmail
+    }));
+    
     console.log("Form Data:", data);
+    postFunc();
   }
 
   function myfunc(e) {
     const name = e.target.name;
     const value = e.target.value;
 
-    Setdata((prevData) => ({
+    setData(prevData => ({
       ...prevData,
       [name]: value,
     }));
   }
+  
   const postFunc = async () => {
     try {
-     const res = await axios.post("http://localhost:7777/user/add",data);
-     console.log(res.data)
+      const res = await axios.post("http://localhost:7777/user/add", data);
+      console.log(res.data);
+    } catch (er) {
+      console.log("error", er);
     }
-    catch(er){
-     console.log("error",er)
+  };
+
+  useEffect(() => {
+    const storedCookie = document.cookie;
+    const splitedCookie = storedCookie.split("; ")
+    const cookieCollection = {}
+    
+    for(const cook of splitedCookie){
+        const[prop, value] = cook.split("=")
+        cookieCollection[prop] = value
     }
 
- };
- 
+    const Username = cookieCollection["useremail"]
+    console.log("Username from cookie:", Username);
+    setUserEmail(Username);
+    postFunc();
+
+  },[]);
 
   return (
     <div className="bg-white min-h-screen bg-no-repeat bg-cover bg-[url('./assets/hospitalBg.jpg')]">
