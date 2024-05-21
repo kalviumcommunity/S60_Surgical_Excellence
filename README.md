@@ -26,6 +26,7 @@ We welcome contributions to enhance and improve Surgical Excellence! To contribu
 4. Push your changes to your forked repository.
 5. Submit a pull request, detailing the changes made and the problem solved.
 
-## Deployed Frontend Link
+## Deployed Link
 
-**Link**:  https://66487b7c9e6c50b545b16941--peppy-lollipop-54c60e.netlify.app/
+**Frontend Link**: https://664c494c32b0976aeb6fa150--dazzling-florentine-6f4deb.netlify.app/
+**Backend Link**: https://s60-surgical-excellence-1.onrender.com/
